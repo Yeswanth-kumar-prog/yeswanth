@@ -1,0 +1,187 @@
+First1:
+
+import java.util.*;
+public class Vote {
+
+	public static void main(String[] args) {
+		int age;
+		Scanner sc=new Scanner(System.in);
+		System.out.println("What is your age");
+		age=sc.nextInt();
+		if(age>=18)
+			System.out.println("You are eligible to vote");
+		else
+			System.out.println("You are not eligible to vote");// TODO Auto-generated method stub
+
+	}
+
+}
+
+
+Second2:
+
+
+import java.io.*;
+
+
+public class JavaExercises
+{
+public static void main(String[] args)
+{
+   detectKey();
+}
+
+static void detectKey(){
+
+char key=' ';
+System.out.print("Press a number key:");
+try{
+key = (char)System.in.read();
+}catch(IOException e){};
+switch (key)
+{
+case '0': System.out.println("You pressed 0."); break;
+case '1': System.out.println("You pressed 1."); break;
+case '2': System.out.println("You pressed 2."); break;
+case '3': System.out.println("You pressed 3."); break;
+case '4': System.out.println("You pressed 4."); break;
+case '5': System.out.println("You pressed 5."); break;
+case '6': System.out.println("You pressed 6."); break;
+case '7': System.out.println("You pressed 7."); break;
+case '8': System.out.println("You pressed 8."); break;
+case '9': System.out.println("You pressed 9."); break;
+default: System.out.println("Not allowed!"); break;
+
+      }
+}
+}
+
+
+
+
+Third3:
+
+import java.io.*;
+public class Switch {
+
+	public static void main(String[] args) {
+		
+		   selectChoice();
+		}
+
+		static void selectChoice(){
+
+
+		char ans=' ';
+		System.out.println("What is the correct way to declare a variable to store an integer value in Java?");
+		System.out.println("a. int 1x=10");
+		System.out.println("b. int x=10");
+		System.out.println("c. float x=10.0f");
+		System.out.println("d. string x=\"10\"");
+		System.out.print("Enter your choice:");
+		try{
+		ans = (char)System.in.read();
+
+		}catch(IOException e){};
+		switch (ans)
+		{
+		case 'a': System.out.println("Invalid choice!"); break;
+		case 'b': System.out.println("Congratulation!"); break;
+		case 'c': System.out.println("Invalid choice!"); break;
+		case 'd': System.out.println("Invalid choice!"); break;
+		default: System.out.println("Bad choice!");break;
+
+
+		}
+
+
+		}
+
+		
+	}
+
+
+Fourth4:
+
+
+import java.io.*;
+
+public class whileloop
+{
+public static void main(String[] args)
+{
+selectChoice();
+}
+
+static void selectChoice(){
+
+String choice;
+String con;
+try{
+BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+System.out.println("What is the command keyword to exit a loop in Java?");
+System.out.println("a.int");
+System.out.println("b.continue");
+System.out.println("c.break");
+System.out.println("d.exit");
+
+
+do
+{
+
+System.out.print("Enter your choice:");
+choice =br.readLine();
+
+if (choice.compareTo("c")==0)
+{
+System.out.println("Congratulation!");
+}
+else if (choice.compareTo("q")==0 || choice.compareTo("e")==0) {  System.out.println("Exiting...!"); break; }
+else System.out.println("Incorrect!");
+
+System.out.print("Again? press y to continue:");
+con =br.readLine();
+} while (con.compareTo("y")==0);
+
+}catch(IOException e){}
+
+
+  }
+
+}
+
+
+Fifth5:
+
+
+
+
+public class Dowhile
+{
+public static void main(String[] args)
+{
+	int i =1;
+
+	do
+	{
+	System.out.print((char)i+"\t");
+	if (i % 10 == 0)
+	System.out.println("");
+	i++;
+	}while (i <=122);
+
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,454 @@
+First1:
+
+class Question1 {
+  public static void main(String[] args) {
+
+    int[] num = {1, 2, 3, 4, 5};
+    int toFind = 3;
+    boolean found = false;
+
+    for (int n : num) {
+      if (n == toFind) {
+        found = true;
+        break;
+      }
+    }
+    
+    if(found)
+      System.out.println(toFind + " is found.");
+    else
+      System.out.println(toFind + " is not found.");
+  }
+}
+
+
+Second2:
+
+
+public class Question2 {
+	
+	    public static void main(String[] args) {
+	        int i;
+	        int[] ar1 = new int[100];
+	        for( i = 0; i <  ar1.length; i++) {
+	            ar1[i] = (int) (Math.random() * 100);
+	            System.out.print(ar1[i] + "  ");
+	        }
+	    
+	}
+
+}
+
+
+
+Third3:
+
+
+public class Question3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 
+		        int [] arr = new int [] {1, 2, 3, 3, 5, 7, 9, 4, 7};   
+		          
+		        System.out.println("Duplicate elements in given array: ");  
+		        
+		        for(int i = 0; i < arr.length; i++) {  
+		            for(int j = i + 1; j < arr.length; j++) {  
+		                if(arr[i] == arr[j])  
+		                    System.out.println(arr[j]);  
+		          }  
+		    }  
+  }
+
+}
+
+
+
+Fourth4:
+
+
+class Question4 {
+
+	public static void main(String[] args) {
+		
+				
+				int x[][]={{8,9,7},{6,6,5},{4,5,3}};  
+				
+				int y[][]={{3,5,9},{18,5,8},{2,1,5}}; 
+				
+				int z[][]=new int[3][3];  
+				
+				for(int i=0,j=2;i<3;i++,j--)
+					for(int k=0,l=2;k<3;k++,l--)
+						z[i][k]=x[i][k]*y[j][l];
+					
+				for(int i=0;i<3;i++)
+				{
+					for(int j=0;j<3;j++)
+						System.out.print(z[i][j]+" ");
+					System.out.println();
+				}
+			}
+		
+		  
+}
+
+
+
+Fifth5:
+
+
+ class Rectangle {
+
+	private double length;  
+	   private double width;   
+	   public void setRectangle(double length, double width)
+	   {
+	      this.length = length;
+	      this.width  = width;
+	   }
+	 
+	   
+	   public double getArea()
+	   {
+	      return length * width;
+	   }
+	
+}
+ class Box extends Rectangle
+{
+   private double height;  
+  
+   public void setBox(double length, double width, double height)
+   {
+     
+      setRectangle(length,width); 
+      this.height = height;
+   }
+ 
+   public double getVolume()
+   {
+      //Call the inherited getArea method
+      return getArea() * height;
+   }
+}
+public class Rectangle1 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Box room = new Box();
+	      room.setBox(30, 12.6, 5.5);
+	      System.out.println("Volume is " + room.getVolume());
+	}
+
+}
+
+
+
+Sixth6:
+
+
+import java.util.*;
+public class Student
+{
+String name;
+int age;
+String address;
+public Student()
+{
+this.name="unknown";
+this.age=0;
+this.address="not avaliable";
+}
+public void setinfo(int age,String name)
+{
+this.name=name;
+this.age=age;
+}
+public void setinfo(int age ,String name,String address)
+{
+this.name=name;
+this.age=age;
+this.address=address;
+}
+
+
+@Override
+public String toString()
+{
+return "Student [name=" + name + ", age=" + age + ", address=" + address + "]";
+}
+public static void main(String[] args)
+{
+
+List<Student> stu=new ArrayList<>();
+stu.add(new Student());
+stu.add(new Student());
+stu.add(new Student());
+stu.add(new Student());
+stu.add(new Student());
+stu.add(new Student());
+stu.add(new Student());
+stu.add(new Student());
+stu.add(new Student());
+stu.add(new Student());
+
+stu.get(0).setinfo(55, "Name1");
+stu.get(2).setinfo(50, "Name3","Bombay,India");
+stu.get(3).setinfo(45, "Name4","hyd,India");
+stu.get(5).setinfo(30, "Name6","delhi,India");
+stu.get(6).setinfo(65, "Name7","vizag,India");
+stu.get(8).setinfo(55, "Name9");
+
+for(Student s :stu)
+{
+System.out.println(s);
+}
+}
+
+}
+
+
+
+Seventh7:
+
+
+
+class C{
+float getRateOfInterest(){return 0;}  
+}  
+class SBI extends C{  
+float getRateOfInterest(){return 4.2f;}  
+}  
+class ICICI extends C{  
+float getRateOfInterest(){return 6.8f;}  
+}  
+class PNB extends C{  
+float getRateOfInterest(){return 7.9f;}  
+}  
+
+public class Question7 {
+	public static void main(String args[]){  
+		C b;  
+		b=new SBI();  
+		System.out.println("SBI Rate of Interest: "+b.getRateOfInterest());  
+		b=new ICICI();  
+		System.out.println("ICICI Rate of Interest: "+b.getRateOfInterest());  
+		b=new PNB();  
+		System.out.println("PNB Rate of Interest: "+b.getRateOfInterest());  
+		}  
+		} 
+
+
+
+Eighth8:
+
+
+
+
+class Bank
+{
+	public int getbalance()
+	{
+		return 0;
+	}
+}
+
+class BankA extends Bank
+{
+	public int getbalance()
+	{
+		return 1000;
+	}
+}
+class BankB extends Bank
+{
+	public int getbalance()
+	{
+		return 1500;
+	}
+}
+class BankC extends Bank
+{
+	public int getbalance()
+	{
+		return 2000;
+	}
+}
+public class Question8 {
+	
+	public static void main(String args[])
+	{
+		BankA a = new BankA();
+		BankB b = new BankB();
+		BankC c = new BankC();
+		System.out.println("Balance in A bank: "+ a.getbalance());
+		System.out.println("Balance in B bank: "+ b.getbalance());
+		System.out.println("Balance in C bank: "+ c.getbalance());
+	}
+
+}
+
+
+
+Nine9:
+
+
+
+
+public class Question9 {
+	private String name;
+	private int day; 
+	private String month;
+
+public String setname()
+{       this.name="Republic day";
+		return name;
+}
+	public int setday()
+	{       this.day=26;
+			return day;
+	}
+	public String setmonth()
+	{       this.month = "January";
+			return month;
+	}
+ public static void main(String args[])
+ {
+	 Question9 h = new Question9();
+	 System.out.println(h.setday()+"-"+h.setmonth()+"="+h.setname());
+ }
+		
+	
+}
+
+
+Tenth10:
+
+
+class A
+{
+	int width;
+	int height;
+
+	public int area()
+	{
+		return width*height;
+	}
+}
+
+public class Question10 {
+	
+	public static void main(String args[]) {
+	
+    A myRect = new A();
+    myRect.width = 40;
+    myRect.height = 50;
+    System.out.println("myRect's area is " + myRect.area());
+
+
+}
+}
+
+
+Eleventh11:
+
+
+
+import java.util.*;
+public class Question11 {
+public static void main(String args[]) {
+Scanner sc = new Scanner(System.in);
+System.out.println("Enter a name : ");
+String ar[] = new String[1];
+String a[] = new String[3];
+String s1;
+
+	String s = sc.nextLine();
+	 a = s.split(" ");
+	 s1 = a[0].charAt(0)+"."+a[1].charAt(0)+"."+a[2];
+	 ar[0] = s1;
+	
+	
+//}
+sc.close();
+for(String s2: ar)
+	System.out.println(s2);
+}
+}
+
+
+Twelve12:
+
+public class Question12 {
+	public static boolean areAnagrams(String string1,
+            String string2) {
+
+String workingCopy1 = removeJunk(string1);
+String workingCopy2 = removeJunk(string2);
+
+workingCopy1 = workingCopy1.toLowerCase();
+workingCopy2 = workingCopy2.toLowerCase();
+
+workingCopy1 = sort(workingCopy1);
+workingCopy2 = sort(workingCopy2);
+
+return workingCopy1.equals(workingCopy2);
+}
+
+protected static String removeJunk(String string) {
+int i, len = string.length();
+StringBuilder dest = new StringBuilder(len);
+char c;
+
+for (i = (len - 1); i >= 0; i--) {
+c = string.charAt(i);
+if (Character.isLetter(c)) {
+dest.append(c);
+}
+}
+
+return dest.toString();
+}
+
+protected static String sort(String string) {
+char[] charArray = string.toCharArray();
+
+java.util.Arrays.sort(charArray);
+
+return new String(charArray);
+}
+
+public static void main(String[] args) {
+String string1 = "Cosmo and Laine:";
+String string2 = "Maid, clean soon!";
+
+System.out.println();
+System.out.println("Testing whether the following "
++ "strings are anagrams:");
+System.out.println("    String 1: " + string1);
+System.out.println("    String 2: " + string2);
+System.out.println();
+
+if (areAnagrams(string1, string2)) {
+System.out.println("They ARE anagrams!");
+} else {
+System.out.println("They are NOT anagrams!");
+}
+System.out.println();
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
