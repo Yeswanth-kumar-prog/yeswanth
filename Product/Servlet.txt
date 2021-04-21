@@ -1,0 +1,75 @@
+
+Product_Numbers
+
+
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.*;
+public class Product_Numbers extends HttpServlet{
+public void service(HttpServletRequest request,HttpServletResponse response) throws IOException
+{
+int num1 = Integer.parseInt(request.getParameter("num1"));
+int num2 = Integer.parseInt(request.getParameter("num2"));
+int product = num1 * num2;
+PrintWriter output = response.getWriter();
+output.println("The product :"+product);
+}
+}
+
+
+Index.html
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Inputs Form</title>
+</head>
+<body>
+<h1>Products</h1>
+<form action="" method="post">
+product id:<input type="text" name="pid">
+Enter First Number:<input type="text" name="num1">
+Enter Second Number:<input type="text" name="num2">
+<input type="Product">
+</form>
+</body>
+</html>
+
+
+web.xml
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+<servlet>
+<servlet-name>Product</servlet-name>
+<servlet-class>Product_Numbers</servlet-class>
+
+</servlet>
+
+<servlet-mapping>
+
+<servlet-name>Product</servlet-name>
+<url-pattern>/Product_me</url-pattern>
+
+</servlet-mapping>
+</web-app>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
