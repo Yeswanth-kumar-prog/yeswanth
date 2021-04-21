@@ -1,0 +1,111 @@
+  
+
+
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class insertinfo
+ */
+public class insert extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public insert() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.setContentType("text/html");
+		String id=request.getParameter("pid");
+		String name=request.getParameter("pname");
+		double price=Double.parseDouble(request.getParameter("pprice"));
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/jclass", "root", "starg");
+			PreparedStatement st=con.prepareStatement("insert into product values(?,?,?)");
+			st.setString(1, id);
+			st.setString(2, name);
+			st.setDouble(3, price);
+			st.executeUpdate();
+			st.close();
+			con.close();
+				response.getWriter().print("inserted successfully");
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+  Index.html
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Inputs Form</title>
+</head>
+<body>
+<h1>Products</h1>
+<form action="insert" method="post">
+product id:<input type="text" name="pid">
+product name:<input type="text" name="pname">
+product price:<input type="text" name="pprice">
+<input type="submit">  <input type="reset" value="clear">
+</form>
+</body>
+</html>
+
+
+}
+
+
+web.xml
+
+  
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>productDB</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>insertinfo</display-name>
+    <servlet-name>insertinfo</servlet-name>
+    <servlet-class>insert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insertinfo</servlet-name>
+    <url-pattern>/insertinfo</url-pattern>
+  </servlet-mapping>
+</web-app>

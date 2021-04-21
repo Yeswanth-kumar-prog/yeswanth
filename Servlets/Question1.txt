@@ -1,0 +1,40 @@
+DateSrv.java
+
+
+import java.io.*;
+import javax.servlet.*;
+public class DateSrv extends GenericServlet
+{
+//implement service()
+public void service(ServletRequest req, ServletResponse res) throws IOException,
+ServletException
+{
+//set response content type
+res.setContentType("text/html");
+//get stream obj
+PrintWriter pw = res.getWriter();
+//write req processing logic
+java.util.Date date = new java.util.Date();
+pw.println("<h2>"+"Current Date & Time: " +date.toString()+"</h2>");
+//close stream object
+pw.close();
+}
+}
+
+
+web.xml
+
+
+
+<?xml version="1.0"?>
+<web-app>
+<servlet>
+<servlet-name>Date</servlet-name>
+<servlet-class>DateSrv</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>Date</servlet-name>
+<url-pattern>/date</url-pattern>
+</servlet-mapping>
+</web-app>
+
