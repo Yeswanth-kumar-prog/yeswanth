@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Div tag</h1>
+<div><a href="https://www.google.com/"><img src="download.png"></a>Google</div>
+<div> <a href="https://www.facebook.com/"><img src="facebook.png></a>facebook</div>
+<div><a href="https://www.w3schools.com/"><img src="w3schools.jfif"></a>w3schools </div>
+<h1>Span tag</h1>
+<span><a href="https://www.google.com/"><img src="download.png"></a></span>
+<span><a href="https://www.facebook.com/"><img src="facebook.png"></a></span>
+<span><a href="https://www.w3schools.com/"><img src="w3schools.jfif"></a></span>
+</body>
+</html>
