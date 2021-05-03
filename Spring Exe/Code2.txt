@@ -1,0 +1,98 @@
+BMICalculator.java
+
+
+
+package com;
+
+public class BMICalculator {
+private Patient patient;
+
+public Patient getPatient() {
+	return patient;
+}
+
+public void setPatient(Patient patient) {
+	this.patient = patient;
+}
+
+public double BMI()
+{
+	return (patient.getPatientWeight()/patient.getPatientHeight()*patient.getPatientHeight())*703;
+}
+}
+
+Patient.java
+
+
+
+package com;
+
+public class Patient {
+private int patientId;
+private double patientWeight;
+private double patientHeight;
+private String name;
+BMICalculator b;
+public int getPatientId() {
+	return patientId;
+}
+public void setPatientId(int patientId) {
+	this.patientId = patientId;
+}
+public double getPatientWeight() {
+	return patientWeight;
+}
+public void setPatientWeight(double patientWeight) {
+	this.patientWeight = patientWeight;
+}
+public double getPatientHeight() {
+	return patientHeight;
+}
+public void setPatientHeight(double patientHeight) {
+	this.patientHeight = patientHeight;
+}
+public String getName() {
+	return name;
+}
+public void setName(String name) {
+	this.name = name;
+}
+public void show() {
+	System.out.println(b.BMI());;
+}
+}
+
+
+
+MainApp.java
+
+
+package com;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class MainApp {
+	
+	public static void main(String[] args) {
+		ApplicationContext objA = new ClassPathXmlApplicationContext("bean.xml");
+		Patient p = (Patient)objA.getBean("patient");
+		p.show();
+	}
+
+}
+
+bean.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+   
+   <bean id = "patient" class="com.Patient" autowire="byName">
+   <property name="patientId" value="101"></property>
+   <property name="name" value="ram"></property>
+   <property name="patientHeight" value="5.9"></property>
+   <property name="patientWeight" value="65"></property>
+  </bean>
+  </beans>
